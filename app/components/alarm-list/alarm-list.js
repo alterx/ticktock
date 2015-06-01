@@ -4,7 +4,7 @@
     function AlarmList () {
         var directive = {
             restrict: 'E',
-            templateUrl: 'components/alarm-list/alarm-list.html',
+            templateUrl: 'app/components/alarm-list/alarm-list.html',
             controller: AlarmListCtrl,
             controllerAs: 'ctrl',
             bindToController: true,

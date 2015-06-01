@@ -4,7 +4,7 @@
     angular.module('tickTock').directive('clock', function () {
         return {
             restrict: 'E',
-            templateUrl: 'components/clock/clock.html',
+            templateUrl: 'app/components/clock/clock.html',
             controller: ClockCtrl,
             controllerAs: 'ctrl',
             bindToController: true,

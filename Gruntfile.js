@@ -16,6 +16,7 @@ module.exports = function (grunt) {
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
   grunt.loadNpmTasks('grunt-ng-annotate');
+  grunt.loadNpmTasks('grunt-angular-templates');
 
   // Configurable paths
   var config = {
@@ -298,6 +299,13 @@ module.exports = function (grunt) {
       }
     },
 
+    ngtemplates: {
+      tickTock: {
+        src: 'app/**/**.html',
+        dest: '<%= config.app %>/scripts/templates.js'
+      }
+    },
+
     // By default, your `index.html`'s <!-- Usemin block --> will take care
     // of minification. These next options are pre-configured if you do not
     // wish to use the Usemin blocks.
@@ -435,6 +443,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
+    'ngtemplates',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',

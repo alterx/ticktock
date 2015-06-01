@@ -7,7 +7,7 @@
 
         $routeProvider
             .when('/clock', {
-                templateUrl: 'pages/home/home.html',
+                templateUrl: 'app/pages/home/home.html',
                 controller: 'HomeCtrl as ctrl',
                 resolve: {
                     alarms : function(alarmService) {
@@ -24,7 +24,7 @@
                 
             })
             .when('/login', {
-                templateUrl: 'pages/login/login.html',
+                templateUrl: 'app/pages/login/login.html',
                 controller: 'LoginCtrl as ctrl'
             })
             .otherwise({

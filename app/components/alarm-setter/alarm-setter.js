@@ -4,7 +4,7 @@
     function AlarmSetter () {
         var directive = {
             restrict: 'E',
-            templateUrl: 'components/alarm-setter/alarm-setter.html',
+            templateUrl: 'app/components/alarm-setter/alarm-setter.html',
             controller: AlarmSetterCtrl,
             controllerAs: 'ctrl',
             bindToController: true,
