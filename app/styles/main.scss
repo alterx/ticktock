@@ -1,0 +1,16 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+@import "_config.scss";
+@import "_app.scss";
+
+@import "pages/_home.scss";
+@import "pages/_login.scss";
+
+@import "components/_clock.scss";
+
+@import "themes/_warm.scss";
+@import "themes/_cold.scss";
+

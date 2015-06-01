@@ -1,0 +1,44 @@
+// Theme: Warm 
+
+@charset "UTF-8";
+ 
+// Colors
+$border-color: #D8D8D8;
+$border-color-expanded: #F38125;
+$close-btn-color: #F38125; 
+$close-btn-color-hover: #F44336;
+$header-color: #F38125;
+$header-color-hover: #F38125;
+
+.warm {
+	.vAccordion--default {
+	  v-pane.is-expanded > v-pane-header {
+	    border-bottom-color: $border-color-expanded;
+	  }
+	  v-pane-header {
+	    border-bottom: 2px solid #ccc;
+	    &::after, &::before {
+	      background-color: $header-color;
+	    }
+	    &:hover, &:focus {
+	      color: $header-color-hover;
+	    }
+	  }
+	}
+
+	.vModal--default v-close {
+	  &::after, &::before {
+	    background-color: $close-btn-color;
+	  }
+	  &:hover {
+	    &::after, &::before {
+	      background-color: $close-btn-color-hover;
+	    }
+	  }
+	  &:focus {
+	    &::after, &::before {
+	      background-color: $close-btn-color-hover;
+	    }
+	  }
+	}
+}

@@ -1,0 +1,14 @@
+<v-accordion class="vAccordion--default">
+
+  <v-pane ng-repeat="alarm in ctrl.alarms" expanded="$first">
+    <v-pane-header>
+      <strong>{{ alarm.message }}</strong>
+    </v-pane-header>
+
+    <v-pane-content>
+        <i class="glyphicon " data-ng-class="{ 'glyphicon-ok-sign': alarm.on, 'glyphicon-minus-sign': !alarm.on }"></i>
+        <h1>{{ alarm.alarm | timeCompact }}</h1>
+    </v-pane-content>
+  </v-pane>
+
+</v-accordion>
