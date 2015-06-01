@@ -1,5 +1,19 @@
 # ticktock
 
+#Running the project
+
+Clone the repository, then run: 
+
+```
+cd ticktock/
+npm install
+bower install
+```
+
+#Demo 
+
+http://alterx.github.io/ticktock/#/clock
+
 #TODO
 
 * Styles for alarm creator
