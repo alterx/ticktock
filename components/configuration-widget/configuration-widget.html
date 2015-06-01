@@ -1,0 +1,32 @@
+<v-modal class="vModal--default" onclose="ctrl.close()">
+  <v-dialog heading="My modal" small middle>
+    <v-close label="Close"></v-close>
+
+    <h1>Configuration</h1>
+
+
+    <v-accordion class="vAccordion--default">
+
+	  <v-pane expanded="$first">
+	    <v-pane-header>
+	      <strong>Alarm List</strong>
+	    </v-pane-header>
+
+	    <v-pane-content>
+	        <alarm-list alarms="ctrl.alarms" />
+	    </v-pane-content>
+	  </v-pane>
+
+	  <v-pane>
+	    <v-pane-header>
+	      <strong>Set Alarm</strong>
+	    </v-pane-header>
+
+	    <v-pane-content>
+	        <alarm-setter />
+	    </v-pane-content>
+	  </v-pane>
+
+	</v-accordion>
+  </v-dialog>
+</v-modal>
