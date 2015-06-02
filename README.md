@@ -18,8 +18,7 @@ http://alterx.github.io/ticktock/#/clock
 
 #TODO
 
-* Styles for alarm creator
 * Enable/disable/edit alarms
 * Snooze button
 * Persist themes
-* Refreshing alarm list after creating new alarm
+* Refreshing alarm list after creating new alarm (currently you need to manually reload the page)

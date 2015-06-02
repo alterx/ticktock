@@ -17,7 +17,11 @@
     	this.alarmService = alarmService;
     }
 
-    AlarmSetterCtrl.prototype.setAlarmWeekdays = function () {
+    AlarmSetterCtrl.prototype.setAlarmWeekdays = function (valid) {
+        if(!valid){
+            return;
+        }
+
      	var cal;
 
 		// Will match any date that is on Sunday or Monday.
@@ -26,8 +30,12 @@
 		this.setAlarm(cal, moment(this.alarmTime));
     };
 
-    AlarmSetterCtrl.prototype.setAlarmWeekends = function () {
-     	var cal;
+    AlarmSetterCtrl.prototype.setAlarmWeekends = function (valid) {
+     	if(!valid){
+            return;
+        }
+        
+        var cal;
 
 		// Will match any date that is on Sunday or Monday.
 		cal = moment.recur().every(["Sunday", "Saturday"]).daysOfWeek();
@@ -35,8 +43,12 @@
 		this.setAlarm(cal, moment(this.alarmTime));
     };
 
-    AlarmSetterCtrl.prototype.setAlarmCustom = function (customDays) {
-     	var cal;
+    AlarmSetterCtrl.prototype.setAlarmCustom = function (valid, customDays) {
+     	if(!valid){
+            return;
+        }
+        
+        var cal;
 
 		// Will match any date that is on Sunday or Monday.
 		cal = moment.recur().every(customDays).daysOfWeek();

@@ -1,15 +1,7 @@
+<form name="alarmForm" class="alarm-setter">
+	<input name="description" placeholder="Description" type="text" class="description" data-ng-class="{ error: alarmForm.$submitted && alarmForm.description.$invalid }" data-ng-model="ctrl.alarmName" required />
+	<timepicker ng-model="ctrl.alarmTime" hour-step="1" minute-step="15" show-meridian="true"></timepicker>
 
-<input data-ng-model="ctrl.alarmName" />
-<timepicker ng-model="ctrl.alarmTime" hour-step="1" minute-step="15" show-meridian="true"></timepicker>
-
-<div class="btn-group">
-    <label class="btn btn-primary" ng-model="ctrl.left" btn-checkbox>Monday</label>
-    <label class="btn btn-primary" ng-model="checkModel.middle" btn-checkbox>Tuesday</label>
-    <label class="btn btn-primary" ng-model="checkModel.right" btn-checkbox>Wednesday</label>
-    <label class="btn btn-primary" ng-model="ctrl.left" btn-checkbox>Thursday</label>
-    <label class="btn btn-primary" ng-model="checkModel.middle" btn-checkbox>Friday</label>
-    <label class="btn btn-primary" ng-model="checkModel.right" btn-checkbox>Saturday</label>
-    <label class="btn btn-primary" ng-model="checkModel.right" btn-checkbox>Sunday</label>
-</div>
-<span class="btn btn-primary" data-ng-click="ctrl.setAlarmWeekdays();"> Weekdays </span>
-<span class="btn btn-primary" data-ng-click="ctrl.setAlarmWeekends();"> Weekend </span>
+	<input type="submit" class="btn btn-primary" data-ng-click="ctrl.setAlarmWeekdays(alarmForm.$valid);" value="Weekdays"></input>
+	<input type="submit" class="btn btn-primary" data-ng-click="ctrl.setAlarmWeekends(alarmForm.$valid);" value="Weekend"></input>
+</form>

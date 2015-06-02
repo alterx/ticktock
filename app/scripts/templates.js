@@ -20,21 +20,13 @@ angular.module('tickTock').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('app/components/alarm-setter/alarm-setter.html',
+    "<form name=\"alarmForm\" class=\"alarm-setter\">\n" +
+    "\t<input name=\"description\" placeholder=\"Description\" type=\"text\" class=\"description\" data-ng-class=\"{ error: alarmForm.$submitted && alarmForm.description.$invalid }\" data-ng-model=\"ctrl.alarmName\" required />\n" +
+    "\t<timepicker ng-model=\"ctrl.alarmTime\" hour-step=\"1\" minute-step=\"15\" show-meridian=\"true\"></timepicker>\n" +
     "\n" +
-    "<input data-ng-model=\"ctrl.alarmName\" />\n" +
-    "<timepicker ng-model=\"ctrl.alarmTime\" hour-step=\"1\" minute-step=\"15\" show-meridian=\"true\"></timepicker>\n" +
-    "\n" +
-    "<div class=\"btn-group\">\n" +
-    "    <label class=\"btn btn-primary\" ng-model=\"ctrl.left\" btn-checkbox>Monday</label>\n" +
-    "    <label class=\"btn btn-primary\" ng-model=\"checkModel.middle\" btn-checkbox>Tuesday</label>\n" +
-    "    <label class=\"btn btn-primary\" ng-model=\"checkModel.right\" btn-checkbox>Wednesday</label>\n" +
-    "    <label class=\"btn btn-primary\" ng-model=\"ctrl.left\" btn-checkbox>Thursday</label>\n" +
-    "    <label class=\"btn btn-primary\" ng-model=\"checkModel.middle\" btn-checkbox>Friday</label>\n" +
-    "    <label class=\"btn btn-primary\" ng-model=\"checkModel.right\" btn-checkbox>Saturday</label>\n" +
-    "    <label class=\"btn btn-primary\" ng-model=\"checkModel.right\" btn-checkbox>Sunday</label>\n" +
-    "</div>\n" +
-    "<span class=\"btn btn-primary\" data-ng-click=\"ctrl.setAlarmWeekdays();\"> Weekdays </span>\n" +
-    "<span class=\"btn btn-primary\" data-ng-click=\"ctrl.setAlarmWeekends();\"> Weekend </span>\n"
+    "\t<input type=\"submit\" class=\"btn btn-primary\" data-ng-click=\"ctrl.setAlarmWeekdays(alarmForm.$valid);\" value=\"Weekdays\"></input>\n" +
+    "\t<input type=\"submit\" class=\"btn btn-primary\" data-ng-click=\"ctrl.setAlarmWeekends(alarmForm.$valid);\" value=\"Weekend\"></input>\n" +
+    "</form>"
   );
 
 
@@ -203,7 +195,7 @@ angular.module('tickTock').run(['$templateCache', function($templateCache) {
     "<!--\n" +
     "Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort=views&timeframe=ever&offset=461\n" +
     "-->\n" +
-    "<div class=\"jumbotron\">\n" +
+    "<div class=\"jumbotron login\">\n" +
     "  <div class=\"container\">\n" +
     "    <form class=\"box\" name=\"loginForm\" novalidate>\n" +
     "        <input data-ng-model=\"ctrl.usr\" required type=\"text\" placeholder=\"username\">\n" +

@@ -5,7 +5,6 @@
         this.alarms = alarms;
         this.userService = userService; 
         this.$location = $location;
-        this.registrationUrl = '../components/registration/registration.html';
     }
 
     angular
