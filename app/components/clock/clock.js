@@ -23,7 +23,7 @@
         this.date(moment());
         this.templateUrl = 'components/clock/popover.html';
         this.configModal = configModal;
-        this.configModal.setConfig(this.alarms, configModal);
+        this.configModal.setConfig(this.alarms, configModal.modal);
         this.ringing = false;
 
         this.tick();

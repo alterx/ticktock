@@ -17,23 +17,23 @@
 
     angular
         .module('tickTock')
-        .factory('configModal', ConfigModal);
+        .service('configModal', ConfigModal);
 
     function ConfigurationWidgetCtrl ($rootScope) {
-    	this.alarms = ConfigModal.alarms;
+    	  this.alarms = ConfigModal.alarms;
         this.themes = [ {name: 'Warm', selected: false}, {name: 'Cold', selected: true} ];
         this.$rootScope = $rootScope;
     }
 
     ConfigurationWidgetCtrl.prototype.close = function () {
-		ConfigModal.instance.modal.deactivate();
+		    ConfigModal.instance.deactivate();
     };
 
     ConfigurationWidgetCtrl.prototype.selectTheme = function (theme) {
         this.$rootScope.theme = theme.name;
         for(var curTheme in this.themes) {
             this.themes[curTheme].selected = false;
-        }    
+        }
         theme.selected = true;
     };
 
