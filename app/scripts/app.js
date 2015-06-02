@@ -38,6 +38,8 @@
             }
         });
 
+        $rootScope.theme = 'Cold';
+
         if(window.Parse) {
             Parse.initialize('CS6KFTzGObchb6uUSrzm7poITNBE4IsSqUHDGRci', 'jfw2ZJpAb08MmLhvabXFlwp5NHyDZ8LbfpLxPwi5');
         }

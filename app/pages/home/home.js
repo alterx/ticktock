@@ -1,17 +1,22 @@
 (function() {
     'use strict';
 
-    function HomeCtrl(userService, alarms) {
+    function HomeCtrl($location, userService, alarms) {
         this.alarms = alarms;
         this.userService = userService; 
+        this.$location = $location;
         this.registrationUrl = '../components/registration/registration.html';
-        console.log(alarms);
     }
 
     angular
         .module('tickTock')
         .controller('HomeCtrl', HomeCtrl);
 
-    HomeCtrl.$inject = ['userService', 'alarms'];
+    HomeCtrl.prototype.logout = function () {
+        this.userService.logout();
+        this.$location.path('/');
+    };
+
+    HomeCtrl.$inject = ['$location', 'userService', 'alarms'];
 
 })();

@@ -40,6 +40,7 @@ angular.module('tickTock').run(['$templateCache', function($templateCache) {
 
   $templateCache.put('app/components/clock/clock.html',
     "<div class=\"clock\" data-ng-model=\"ctrl.date\" ng-model-options=\"{ getterSetter: true }\">\n" +
+    "\t<span class=\"glyphicon glyphicon-stop\" data-ng-show=\"ctrl.ringing\" data-ng-click=\"ctrl.stopAlarm();\"></span>\n" +
     "\t<h1>{{ ctrl.date() | time }}</h1> <span data-ng-click=\"ctrl.openModal();\" class=\"glyphicon glyphicon-cog\"></span>\n" +
     "</div>"
   );
@@ -61,7 +62,7 @@ angular.module('tickTock').run(['$templateCache', function($templateCache) {
     "\t    </v-pane-header>\n" +
     "\n" +
     "\t    <v-pane-content>\n" +
-    "\t        <alarm-list alarms=\"ctrl.alarms\" />\n" +
+    "\t        <alarm-list alarms=\"ctrl.alarms\"></alarm-list>\n" +
     "\t    </v-pane-content>\n" +
     "\t  </v-pane>\n" +
     "\n" +
@@ -71,7 +72,19 @@ angular.module('tickTock').run(['$templateCache', function($templateCache) {
     "\t    </v-pane-header>\n" +
     "\n" +
     "\t    <v-pane-content>\n" +
-    "\t        <alarm-setter />\n" +
+    "\t        <alarm-setter></alarm-setter>\n" +
+    "\t    </v-pane-content>\n" +
+    "\t  </v-pane>\n" +
+    "\n" +
+    "\t  <v-pane>\n" +
+    "\t    <v-pane-header>\n" +
+    "\t      <strong>Theme</strong>\n" +
+    "\t    </v-pane-header>\n" +
+    "\n" +
+    "\t    <v-pane-content>\n" +
+    "\t        <ul>\n" +
+    "\t        \t<li data-ng-repeat=\"theme in ctrl.themes\" data-ng-click=\"ctrl.selectTheme(theme);\">{{ theme.name }} <span data-ng-class=\"{ 'glyphicon-ok': theme.selected }\" class=\"glyphicon\"></span></li>\n" +
+    "\t        </ul>\n" +
     "\t    </v-pane-content>\n" +
     "\t  </v-pane>\n" +
     "\n" +
@@ -105,8 +118,10 @@ angular.module('tickTock').run(['$templateCache', function($templateCache) {
     "\t<script src=\"bower_components/modernizr/modernizr.js\"></script>\n" +
     "\t<!-- endbuild -->\n" +
     "\n" +
+    "\t<script src=\"http://www.parsecdn.com/js/parse-1.4.2.min.js\"></script>\n" +
+    "\n" +
     "  </head>\n" +
-    "  <body ng-app=\"tickTock\" class=\"warm\" ng-cloak>\n" +
+    "  <body ng-app=\"tickTock\" data-ng-class=\"{ warm: $root.theme === 'Warm', cold: $root.theme === 'Cold' }\" ng-cloak>\n" +
     "\t<!--[if lt IE 10]>\n" +
     "\t  <p class=\"browsehappy\">You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/\">upgrade your browser</a> to improve your experience.</p>\n" +
     "\t<![endif]-->\n" +
@@ -143,7 +158,6 @@ angular.module('tickTock').run(['$templateCache', function($templateCache) {
     "\t<script src=\"bower_components/v-modal/dist/v-modal.js\"></script>\n" +
     "\t<script src=\"bower_components/angular-audio/app/angular.audio.js\"></script>\n" +
     "\t<!-- endbower -->\n" +
-    "\t<script src=\"scripts/vendor/parse-1.4.2.js\"></script>\n" +
     "\t<!-- endbuild -->\n" +
     "\n" +
     "\t<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->\n" +
@@ -178,8 +192,9 @@ angular.module('tickTock').run(['$templateCache', function($templateCache) {
 
   $templateCache.put('app/pages/home/home.html',
     "<div class=\"col-lg-6\">\n" +
-    "\t<clock alarms=\"ctrl.alarms\" />\n" +
-    "\t<configuration-widget alarms=\"ctrl.alarms\" />\n" +
+    "\t<clock alarms=\"ctrl.alarms\"></clock>\n" +
+    "\t<configuration-widget alarms=\"ctrl.alarms\"></configuration-widget>\n" +
+    "\t<span class=\"glyphicon glyphicon-off center\" data-ng-click=\"ctrl.logout();\"></span>\n" +
     "</div>"
   );
 

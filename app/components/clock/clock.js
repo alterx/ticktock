@@ -51,7 +51,6 @@
             var alarmRecurring = alarmObj.recurring;
 
             if (alarmObj.on && alarmRecurring.matches(alarmDate) && alarmDate.hour() === now.hour() && alarmDate.minutes() === now.minutes()) {
-                console.log(alarmObj.message);
                 this.ringAlarm();
             }
         }
@@ -65,6 +64,7 @@
 
     ClockCtrl.prototype.stopAlarm = function () {
         this.alarm.stop();
+        this.ringing = false;
     };
 
     ClockCtrl.prototype.snooze = function (alarm) {

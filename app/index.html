@@ -24,7 +24,7 @@
 	<script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
 
   </head>
-  <body ng-app="tickTock" class="warm" ng-cloak>
+  <body ng-app="tickTock" data-ng-class="{ warm: $root.theme === 'Warm', cold: $root.theme === 'Cold' }" ng-cloak>
 	<!--[if lt IE 10]>
 	  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->

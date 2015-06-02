@@ -13,7 +13,7 @@
 	    </v-pane-header>
 
 	    <v-pane-content>
-	        <alarm-list alarms="ctrl.alarms" />
+	        <alarm-list alarms="ctrl.alarms"></alarm-list>
 	    </v-pane-content>
 	  </v-pane>
 
@@ -23,7 +23,19 @@
 	    </v-pane-header>
 
 	    <v-pane-content>
-	        <alarm-setter />
+	        <alarm-setter></alarm-setter>
+	    </v-pane-content>
+	  </v-pane>
+
+	  <v-pane>
+	    <v-pane-header>
+	      <strong>Theme</strong>
+	    </v-pane-header>
+
+	    <v-pane-content>
+	        <ul>
+	        	<li data-ng-repeat="theme in ctrl.themes" data-ng-click="ctrl.selectTheme(theme);">{{ theme.name }} <span data-ng-class="{ 'glyphicon-ok': theme.selected }" class="glyphicon"></span></li>
+	        </ul>
 	    </v-pane-content>
 	  </v-pane>
 

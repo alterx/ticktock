@@ -1,3 +1,4 @@
 <div class="clock" data-ng-model="ctrl.date" ng-model-options="{ getterSetter: true }">
+	<span class="glyphicon glyphicon-stop" data-ng-show="ctrl.ringing" data-ng-click="ctrl.stopAlarm();"></span>
 	<h1>{{ ctrl.date() | time }}</h1> <span data-ng-click="ctrl.openModal();" class="glyphicon glyphicon-cog"></span>
 </div>
