@@ -13,8 +13,9 @@
         return directive;
     }
 
-    function AlarmSetterCtrl(alarmService) {
+    function AlarmSetterCtrl($route, alarmService) {
     	this.alarmService = alarmService;
+        this.$route = $route;
     }
 
     AlarmSetterCtrl.prototype.setAlarmWeekdays = function (valid) {
@@ -58,7 +59,7 @@
 
     AlarmSetterCtrl.prototype.setAlarm = function(cal, time) {
     	this.alarmService.setAlarm({ recurring: cal, alarm: time, message: this.alarmName, on: true}).then(function(data) {
-			console.log(data);
+			this.$route.reload();
 		}.bind(this));
     };
     
@@ -66,6 +67,6 @@
         .module('tickTock')
         .directive('alarmSetter', AlarmSetter);
 
-    AlarmSetterCtrl.$inject = ['alarmService'];
+    AlarmSetterCtrl.$inject = ['$route', 'alarmService'];
 
 })();

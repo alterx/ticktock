@@ -18,11 +18,12 @@
         this.interval = 1000;
         this.$interval = $interval;
         this.alarmService = alarmService;
+        this.alarm = ngAudio.load("sounds/alarm.mp3");
+        this.ngAudio = ngAudio;
         this.date(moment());
         this.templateUrl = 'components/clock/popover.html';
         this.configModal = configModal;
         this.configModal.setConfig(this.alarms, configModal);
-        this.alarm = ngAudio.load("sounds/alarm.mp3");
         this.ringing = false;
 
         this.tick();
@@ -59,6 +60,7 @@
     ClockCtrl.prototype.ringAlarm = function () {
         if (!this.ringing){
             this.alarm.play();
+            this.ringing = true;
         }
     };
 
