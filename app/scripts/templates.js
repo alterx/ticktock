@@ -186,7 +186,7 @@ angular.module('tickTock').run(['$templateCache', function($templateCache) {
     "<div class=\"col-lg-6\">\n" +
     "\t<clock alarms=\"ctrl.alarms\"></clock>\n" +
     "\t<configuration-widget alarms=\"ctrl.alarms\"></configuration-widget>\n" +
-    "\t<span class=\"glyphicon glyphicon-off center\" data-ng-click=\"ctrl.logout();\"></span>\n" +
+    "\t<span class=\"glyphicon glyphicon-off center-icon \" data-ng-click=\"ctrl.logout();\"></span>\n" +
     "</div>"
   );
 

@@ -6,7 +6,7 @@
         	modal: vModal({
 			    controller: 'ConfigurationWidgetCtrl',
 			    controllerAs: 'ctrl',
-			    templateUrl: 'components/configuration-widget/configuration-widget.html'
+			    templateUrl: 'app/components/configuration-widget/configuration-widget.html'
 			  }),
         	setConfig: function(alarms, instance){
         		ConfigModal.alarms = alarms;
