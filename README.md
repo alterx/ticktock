@@ -8,7 +8,9 @@ Clone the repository, then run:
 cd ticktock/
 npm install
 bower install
+grunt serve
 ```
+This will open up a browser window with livereload enabled. Have fun! :) 
 
 #Demo 
 
@@ -17,9 +19,7 @@ http://alterx.github.io/ticktock/#/clock
 #TODO
 
 * Styles for alarm creator
-* Enable/disable alarms
-* Edit alarms
+* Enable/disable/edit alarms
 * Snooze button
-* Stop ring for one alarm
-* Switch themes
+* Persist themes
 * Refreshing alarm list after creating new alarm
