@@ -22,6 +22,9 @@
 
     AlarmService.prototype.setAlarm = function (alarm) {
         var deferred = this.$q.defer();
+        
+        alarm.alarm = alarm.alarm.toISOString();
+        alarm.id = Date.now();
 
         var alarms = this.storageService.set('Alarms', alarm).then(function(data) {
             deferred.resolve(data);

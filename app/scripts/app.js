@@ -1,5 +1,5 @@
 (function () {
-    var app = angular.module('tickTock', ['ngRoute','ui.bootstrap', 'vAccordion', 'vModal', 'ngAudio']);
+    var app = angular.module('tickTock', ['ngRoute','ui.bootstrap', 'vAccordion', 'vModal', 'ngAudio', 'firebase']);
 
     app.config(function ($routeProvider) {
 
@@ -39,9 +39,13 @@
         });
 
         $rootScope.theme = 'Cold';
-
-        if(window.Parse) {
-            Parse.initialize('CS6KFTzGObchb6uUSrzm7poITNBE4IsSqUHDGRci', 'jfw2ZJpAb08MmLhvabXFlwp5NHyDZ8LbfpLxPwi5');
-        }
+        
+        var config = {
+            apiKey: "AIzaSyDdXU1lTS1EUzV3KcK0WZVmSOSUON1RORM",
+            authDomain: "ticktock-39494.firebaseapp.com",
+            databaseURL: "https://ticktock-39494.firebaseio.com",
+            storageBucket: "",
+        };
+        firebase.initializeApp(config);
     });
 })();

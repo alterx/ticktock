@@ -12,47 +12,43 @@
     UserService.$inject = ['$q'];   
 
     UserService.prototype.login = function (email, password) {
-
         var deferred = this.$q.defer();
 
-        Parse.User.logIn(email, password, {
-          success: function(user) {
-            // Do stuff after successful login.
+        firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(function(user) {
             deferred.resolve({user: user, error: null});
-          },
-          error: function(user, error) {
-            // The login failed. Check error to see why.
-            deferred.resolve({user: user, error: error});
-          }
+        })
+        .catch(function(error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            deferred.resolve({user: null, error: error});
         });
 
         return deferred.promise;
     };
 
     UserService.prototype.logout = function () {
-        Parse.User.logOut();
+        firebase.auth().signOut().then(function() {
+            // Sign-out successful.
+        }, function(error) {
+            // An error happened.
+        });
     };
 
     UserService.prototype.isLogged = function () {
-        var currentUser = Parse.User.current();
+        var currentUser = firebase.auth().currentUser;
         return currentUser != null;
     };
 
     UserService.prototype.register = function (email, password) {
-
-        var deferred = this.$q.defer(),
-            user = new Parse.User();
-
-        user.set("password", password);
-        user.set("username", email);
-         
-        user.signUp(null, {
-          success: function(user) {
+        var deferred = this.$q.defer();
+                      
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(function(user) {
             deferred.resolve({user : user, error: null});
-          },
-          error: function(user, error) {
-            deferred.resolve({user : user, error: error});
-          }
+        })
+        .catch(function(error) {
+            deferred.resolve({user : null, error: error});
         });
 
         return deferred.promise;

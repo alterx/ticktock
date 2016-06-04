@@ -1,5 +1,9 @@
 # ticktock
 
+#Pre requisites
+
+ * NodeJS version 0.12
+
 #Running the project
 
 Clone the repository, then run: 

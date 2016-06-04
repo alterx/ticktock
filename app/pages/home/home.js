@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    function HomeCtrl($location, userService, alarms) {
+    function HomeCtrl($location, userService, alarms, auth) {
         this.alarms = alarms;
         this.userService = userService; 
         this.$location = $location;
@@ -16,6 +16,6 @@
         this.$location.path('/');
     };
 
-    HomeCtrl.$inject = ['$location', 'userService', 'alarms'];
+    HomeCtrl.$inject = ['$location', 'userService', 'alarms', 'auth'];
 
 })();
